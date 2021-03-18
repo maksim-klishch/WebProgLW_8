@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <BODY LINK="#FFFFFF" TEXT="#000000" VLINK="#999999" ALINK="#00FF00" BGCOLOR="#000000">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script language="JavaScript">
+            function calc(form) 
+            {
+                const k = parseFloat(form.k.value);
+                const t = parseFloat(form.t.value);
+
+                var w = (t*t + 3 * k * Math.cos(t - 2)) / (2 + Math.sqrt(1 + k * t)) - Math.abs(k - t);
+                var s = Math.log(Math.abs(k - 4 * t)) + Math.exp(2 * k) - t;
+
+                form.w.value = w;
+                form.s.value = s;
+            } 
+        </script>
+        <form>
+            <table border=3 cellspacing=2 width=350 bgcolor="#ffebcd">
+                <tr align=center>
+                    <th align=right>k = </th>
+                    <td><input type="number" name=k></td>
+                    <th align=right>t = </th>
+                    <td><input type="number" name=t></td> 
+                    <td rowspan=2><input type=button value=" Обчислити " onclick="calc(this.form)"></td>
+                </tr>    
+                <tr align=center>
+                    <th align=right>w = </th>
+                    <td><input type="number" name=w></td>
+                    <th align=right>s = </th>
+                    <td><input type="number" name=s></td> 
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
